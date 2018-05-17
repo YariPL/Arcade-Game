@@ -52,18 +52,22 @@ class player {
         switch(e) {
             case 'left':
                 console.log('1ass');//move left
-                player.y=player.y-40;
-                this.render();
+                player.x=player.x-100;
                 break;
             case 'up':
                 console.log('2ass');//move up
+                player.y=player.y-85;
                 break;
             case 'right':
                 console.log('3ass');//move right
-                break;
+                ;
+                player.x=player.x+100;
+                break
             case 'down':
                 console.log('4ass');//move down
-                break;
+                ;
+                player.y=player.y+85;
+                break 
         }
     }
 }
