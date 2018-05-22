@@ -1,5 +1,15 @@
 // Enemies our player must avoid
-class Enemy{
+class newGame {
+    constractor() {
+
+    }
+    static intro(){
+      
+    }
+}
+
+
+class Enemy {
    constractor() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -10,12 +20,12 @@ class Enemy{
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
-    static update(dt) {
+    
 
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    }
+    
 
 // Draw the enemy on the screen, required method for game
     static render() {
@@ -23,8 +33,7 @@ class Enemy{
        
 
     }
-    static moves(){
-                    console.log('assss');
+    static update() {
 
             //move enemy every 0.1 seconds
             setInterval(function(){
@@ -35,6 +44,8 @@ class Enemy{
                 } else {
                     Enemy.x = -100;
                 }
+
+                //if collision happend
                 if(player.x === Enemy.x && player.y === Enemy.y ){
                     //reset to a starting point
                     player.x = 200;
@@ -46,15 +57,8 @@ class Enemy{
                         alert('You looseeeee');
                     }
                 }
-            }, 30);
-        
-
-           
-        
-
+            }, 2050);
     }
-    
-
 }
 
  class Enemy2{
@@ -65,17 +69,15 @@ class Enemy{
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 
     }
-    static update(dt) {
+    static update() {
 
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    }
-    static moves(){
+   
 
-            //move enemy every 0.1 seconds
+            //move enemy every 0.3 seconds
             setInterval(function(){
-                console.log('two');
 
                 if(Enemy2.x < 650){
 
@@ -83,6 +85,7 @@ class Enemy{
                 } else {
                     Enemy2.x = -100;
                 }
+                //if collision happend
                 if(player.x === Enemy2.x && player.y === Enemy2.y ){
                     //reset to a starting point
                     player.x = 200;
@@ -94,14 +97,8 @@ class Enemy{
                         alert('You looseeeee');
                     }
                 }
-            }, 30);
-        
-
-           
-        
-
+            }, 1750);
     }
-
 }
 
 class Enemy3{
@@ -117,19 +114,17 @@ class Enemy3{
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    }
-    static moves(){
-                    console.log('assss');
+   
 
             //move enemy every 0.1 seconds
             setInterval(function(){
 
                 if(Enemy3.x < 650){
-
-                    Enemy3.x = Enemy3.x + Enemy3.speed;
+                    Enemy3.x += Enemy3.speed;
                 } else {
                     Enemy3.x = -100;
                 }
+                //if collision happend
                 if(player.x === Enemy3.x && player.y === Enemy3.y ){
 
                     //reset to a starting point
@@ -139,35 +134,34 @@ class Enemy3{
                     player.lives--;
                     //if player loose all 3 live happyend is impossible
                     if (player.lives === 0) {
-                        alert('You looseeeee');
+                        console.log(player.points);
+                        alert(`You looseeeee with ${player.points} points`);
+                        player.points = 0;
                     }
                 }
-            }, 30);
-        
-
-           
-        
-
+            }, 1550);                       
     }
 }
 
-Enemy.x = -100;
+
+
+Enemy.x = -300;
 Enemy.y = 60;
 Enemy.sprite = 'images/enemy-bug.png';
-Enemy.speed = 12;
+Enemy.speed = 0.5;
 
 Enemy2.x = -100;
 Enemy2.y = 145;
 Enemy2.sprite = 'images/enemy-bug.png';
-Enemy2.speed = 2;
+Enemy2.speed = 0.5;
 
-Enemy3.x = -100;
+Enemy3.x = -200;
 Enemy3.y = 230;
 Enemy3.sprite = 'images/enemy-bug.png';
-Enemy3.speed = 6;
-Enemy.moves();
-Enemy2.moves();
-Enemy3.moves();
+Enemy3.speed = 0.5;
+Enemy.update();
+Enemy2.update();
+Enemy3.update();
 // Now instantiate your objects.
 
 
@@ -217,16 +211,17 @@ class player {
                 }
                 break ;
         }
-        //if collision happend
+        //if reach the water
         if(player.y<60){
             player.x = 200;
             player.y = 400;
-            //problem with collision
-            //Enemy.speed++;
-           // Enemy2.speed++;
-           // Enemy3.speed++;
+            player.points += 100;
+            console.log(player.points);
         }
         
+    }
+    static win() {
+
     }
 }
 
