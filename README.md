@@ -16,7 +16,7 @@
     2.Collision with the enemy reset player position to the beggining.
     3.There are no possibility to kill the enemy or to avoid loosing life while collision happend.
 ## **Mechanic**
-  ### Player should use **arrow keys** to control the game avatar.
-  ### Other keys are not allowed and would do nothing.
+   1.Player should use **arrow keys** to control the game avatar.
+   2.Other keys are not allowed and would do nothing.
 
     
