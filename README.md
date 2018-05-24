@@ -1,6 +1,6 @@
 # Arcade-Game
 ## **Main goal:**
-  ### Main goal of the game is to earn as much points as possible by avoiding enemies to reach to top position of the game field.
+  ### *Main goal of the game is to earn as much points as possible by avoiding enemies to reach to top position of the game field.*
   
 
 ## **Basic Information**
