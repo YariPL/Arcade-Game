@@ -12,7 +12,6 @@ body {
     flex-direction: column;
     background-color: #273898c2;
     align-items: center;
-    /* margin-top: -9px; */
     height: 536px;
     color: white;
     margin-top: 45px;
@@ -45,6 +44,7 @@ img {
 }
 .title {
 	font-size: 30px;
+    margin-top: 22px;
 }
 .subtitle {
 	font-size: 15px;
@@ -61,8 +61,7 @@ img {
 .start {
 }
 .rules {
-			margin-top: 22px;
-
+	margin-top: 22px;
 }
 .tab {
 	cursor:pointer;
@@ -71,10 +70,10 @@ img {
 	color: navy;
 }
 .startFooter {
-	    display: flex;
+	display: flex;
     align-items: center;
     flex-direction: column;
-    font-size: xx-small;
+    font-size: x-small;
 }
 .name {
 	color:black;
@@ -86,4 +85,24 @@ img {
     padding: 22px;
     background-color: darkorchid;
     cursor: pointer;
+}
+.rulesExplain {
+	display: none;
+	justify-content: space-around;
+    width: 505px;
+    position: fixed;
+    border: 5px solid #65e9c7;
+    flex-direction: column;
+    background-color: #65e9c7;
+    align-items: center;
+    color: midnightblue;
+    height: 536px;
+    margin-top: -5px;
+}
+.instH {
+	font-size: 26px;
+}
+.instr {
+    font-size: 16px;
+    line-height: 1.6;
 }
