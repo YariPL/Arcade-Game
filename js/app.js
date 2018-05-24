@@ -1,107 +1,50 @@
 // Enemies our player must avoid
-class newGame {
-    constractor() {
-
-    }
-    static intro(){
-      
-    }
-}
-
-
 class Enemy {
-   constractor() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-    }
-
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
-    
-
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-    
-
-// Draw the enemy on the screen, required method for game
+    constractor() {}
     static render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-       
-
     }
     static update() {
-
             //move enemy every 0.1 seconds
             setInterval(function(){
-
                 if(Enemy.x < 650){
-
                     Enemy.x = Enemy.x + Enemy.speed;
                 } else {
                     Enemy.x = -100;
                 }
-
                 //if collision happend
                 player.collision();
             }, 2050);
     }
 }
 
- class Enemy2{
-    constructor() {
-
-    }
+class Enemy2{
+    constructor() {}
     static render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-
     }
     static update() {
-
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-   
-
             //move enemy every 0.3 seconds
             setInterval(function(){
-
                 if(Enemy2.x < 650){
-
                     Enemy2.x = Enemy2.x + Enemy2.speed;
                 } else {
                     Enemy2.x = -100;
                 }
                 //if collision happend
                     player.collision();
-                    //if player loose all 3 live happyend is impossible
-          
-                
+                    //if player loose all 3 live happyend is impossible  
             }, 1750);
     }
 }
-
 class Enemy3{
-    constructor() {
-
-    }
+    constructor() {}
     static render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-
     }
     static update(dt) {
-
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-   
-
             //move enemy every 0.1 seconds
             setInterval(function(){
-
                 if(Enemy3.x < 650){
                     Enemy3.x += Enemy3.speed;
                 } else {
@@ -109,13 +52,10 @@ class Enemy3{
                 }
                 //if collision happend
                 player.collision();
-
             }, 1550);                       
     }
 }
-
-
-
+//declare all necessary values for all enemies
 Enemy.x = -300;
 Enemy.y = 60;
 Enemy.sprite = 'images/enemy-bug.png';
@@ -133,26 +73,17 @@ Enemy3.speed = 0.5;
 Enemy.update();
 Enemy2.update();
 Enemy3.update();
-// Now instantiate your objects.
-
 
 // Place all enemy objects in an array called allEnemies
 let allEnemies = [Enemy, Enemy2, Enemy3];
-
 // Place the player object in a variable called player
 class player {
-
-    constractor(){
-    }
-    static update(){
-
-    }
-
+    constractor(){}
+    static update(){}
     //draw the player icon-avatar
     static render(){
         ctx.drawImage(Resources.get('images/char-boy1.png'), this.x, this.y);
     }
-
     static handleInput(e){
         console.log('keyup');
         //moving (if left go left and so on)
@@ -189,7 +120,6 @@ class player {
             player.points += 100;
             console.log(player.points);
         }
-        
     }
     //if player has no life run final window
     static win() {
@@ -213,8 +143,6 @@ class player {
             //delete previous win window for the new one
             let onceButton = document.querySelector('.onceAgainButton');
             onceButton.addEventListener('click', function(){
-
-
                 while (winWindow.firstChild) {
                     winWindow.removeChild(winWindow.firstChild);
                     winWindow.style.display = 'none';
@@ -224,7 +152,6 @@ class player {
             
             });
         }   
-
     }
     //if collision happend
     static collision() {
@@ -236,8 +163,7 @@ class player {
                     player.lives--;
                     //if player loose all 3 live happyend is impossible
                     player.win();
-
-                }
+        }
     }  
     static newGame() {
         let Game = document.querySelector('.start');
@@ -249,7 +175,7 @@ class player {
         });
     }
 }          
-                let startButton;
+let startButton;
 player.newGame();
 player.x = 200;
 player.y = 400;
@@ -257,7 +183,7 @@ player.lives = 3;
 player.points = 0;
 
 // This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+// Player.handleInput() method. 
 document.addEventListener('keyup', function(e) {
     let allowedKeys = {
         37: 'left',
