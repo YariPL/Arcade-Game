@@ -11,7 +11,6 @@ class Enemy {
                     Enemy.x = Enemy.x + Enemy.speed;
                 } else {
                     Enemy.x = -100;
-                    Enemy.speed = Math.random()
                 }
                 //if collision happend
                 player.collision();
@@ -31,7 +30,6 @@ class Enemy2{
                     Enemy2.x = Enemy2.x + Enemy2.speed;
                 } else {
                     Enemy2.x = -100;
-                    Enemy2.speed = Math.random()
                 }
                 //if collision happend
                     player.collision();
@@ -51,7 +49,6 @@ class Enemy3{
                     Enemy3.x += Enemy3.speed;
                 } else {
                     Enemy3.x = -100;
-                    Enemy3.speed = Math.random();
                 }
                 //if collision happend
                 player.collision();
@@ -170,14 +167,25 @@ class player {
     }  
     static newGame() {
         let Game = document.querySelector('.start');
-        Game.addEventListener('click',function(){
+        Game.addEventListener('click',function() {
             startButton = document.getElementById('start').style.display = 'none';
             Enemy.x = -300;
             Enemy2.x = -100;
             Enemy3.x = -200;
         });
+        rules = document.querySelector('.rules');
+        rules.addEventListener('click',function() {
+            document.querySelector('.rulesExplain').style.display = 'flex';
+        })
+        back = document.querySelector('.backButton');
+        back.addEventListener('click', function() {
+            document.querySelector('.rulesExplain').style.display = 'none';
+        })
+
     }
-}          
+}      
+let back;
+let rules;    
 let startButton;
 player.newGame();
 player.x = 200;
