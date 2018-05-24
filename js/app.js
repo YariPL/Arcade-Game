@@ -11,6 +11,7 @@ class Enemy {
                     Enemy.x = Enemy.x + Enemy.speed;
                 } else {
                     Enemy.x = -100;
+                    Enemy.speed = Math.random()
                 }
                 //if collision happend
                 player.collision();
@@ -30,6 +31,7 @@ class Enemy2{
                     Enemy2.x = Enemy2.x + Enemy2.speed;
                 } else {
                     Enemy2.x = -100;
+                    Enemy2.speed = Math.random()
                 }
                 //if collision happend
                     player.collision();
@@ -49,6 +51,7 @@ class Enemy3{
                     Enemy3.x += Enemy3.speed;
                 } else {
                     Enemy3.x = -100;
+                    Enemy3.speed = Math.random();
                 }
                 //if collision happend
                 player.collision();
