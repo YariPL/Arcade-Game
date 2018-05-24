@@ -13,7 +13,7 @@
  * writing app.js a little simpler to work with.
  */
 
-let Engine = (function(global) {
+ (function(global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
      * set the canvas elements height/width and add it to the DOM.
@@ -161,7 +161,8 @@ let Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        // noop 
+                
     }
 
     /* Go ahead and load all of the images we know we're going to need to

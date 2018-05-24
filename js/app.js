@@ -46,17 +46,7 @@ class Enemy {
                 }
 
                 //if collision happend
-                if(player.x === Enemy.x && player.y === Enemy.y ){
-                    //reset to a starting point
-                    player.x = 200;
-                    player.y = 400;
-                    //minus 1 live
-                    player.lives--;
-                    //if player loose all 3 live happyend is impossible
-                    if (player.lives === 0) {
-                        alert('You looseeeee');
-                    }
-                }
+                player.collision();
             }, 2050);
     }
 }
@@ -86,17 +76,10 @@ class Enemy {
                     Enemy2.x = -100;
                 }
                 //if collision happend
-                if(player.x === Enemy2.x && player.y === Enemy2.y ){
-                    //reset to a starting point
-                    player.x = 200;
-                    player.y = 400;
-                    //minus 1 live
-                    player.lives--;
+                    player.collision();
                     //if player loose all 3 live happyend is impossible
-                    if (player.lives === 0) {
-                        alert('You looseeeee');
-                    }
-                }
+          
+                
             }, 1750);
     }
 }
@@ -125,20 +108,8 @@ class Enemy3{
                     Enemy3.x = -100;
                 }
                 //if collision happend
-                if(player.x === Enemy3.x && player.y === Enemy3.y ){
+                player.collision();
 
-                    //reset to a starting point
-                    player.x = 200;
-                    player.y = 400;
-                    //minus 1 live
-                    player.lives--;
-                    //if player loose all 3 live happyend is impossible
-                    if (player.lives === 0) {
-                        console.log(player.points);
-                        alert(`You looseeeee with ${player.points} points`);
-                        player.points = 0;
-                    }
-                }
             }, 1550);                       
     }
 }
@@ -211,7 +182,7 @@ class player {
                 }
                 break ;
         }
-        //if reach the water
+        //if reach the watertrue
         if(player.y<60){
             player.x = 200;
             player.y = 400;
@@ -220,16 +191,70 @@ class player {
         }
         
     }
+    //if player has no life run final window
     static win() {
+       if (player.lives === 0) {
+            let winWindow = document.querySelector('.wins');
+            winWindow.classList.add('win');
+            //create win window
+            winWindow.insertAdjacentHTML('afterbegin',`<div class='congrat'> Congratulations!</div>
+                                        <div class='result'>You end with ${player.points} points</div>
+                                        <div class='onceAgainButton'>Wanna try again...?</div>`);     
+                //different endings gifs
+                if(player.points<300) {
+                    winWindow.insertAdjacentHTML('beforeend',`<img src='https://media.giphy.com/media/Q42cpzgcUeZkA/giphy.gif'>`);
+                }else if(player.points<700){   
+                    winWindow.insertAdjacentHTML('beforeend',`<img src='http://bestanimations.com/Music/Dancers/happy-dance/happy-dance-animated-gif-image-46-2.gif'>`);
+                }else if(player.points<1200) {ііііііііііііііііііііііііііііііііііііііііііііііііііііііііііі
+                    winWindow.insertAdjacentHTML('beforeend',`<img src='https://media.giphy.com/media/rypyVNU547qrC/giphy.gif'>`);
+                }else {
+                    winWindow.insertAdjacentHTML('beforeend',`<img src='https://i.gifer.com/nJw.gif'>`);
+                }
+            //delete previous win window for the new one
+            let onceButton = document.querySelector('.onceAgainButton');
+            onceButton.addEventListener('click', function(){
+
+
+                while (winWindow.firstChild) {
+                    winWindow.removeChild(winWindow.firstChild);
+                    winWindow.style.display = 'none';
+                }    
+                player.points = 0;
+                player.lives = 3;
+            
+            });
+        }   
 
     }
-}
+    //if collision happend
+    static collision() {
+        if(player.x === Enemy.x && player.y === Enemy.y || player.x === Enemy2.x && player.y === Enemy2.y||player.x === Enemy3.x && player.y === Enemy3.y){
+                    //reset to a starting point
+                    player.x = 200;
+                    player.y = 400;
+                    //minus 1 live
+                    player.lives--;
+                    //if player loose all 3 live happyend is impossible
+                    player.win();
 
+                }
+    }  
+    static newGame() {
+        let Game = document.querySelector('.start');
+        Game.addEventListener('click',function(){
+            startButton = document.getElementById('start').style.display = 'none';
+            Enemy.x = -300;
+            Enemy2.x = -100;
+            Enemy3.x = -200;
+        });
+    }
+}          
+                let startButton;
+player.newGame();
 player.x = 200;
 player.y = 400;
 player.lives = 3;
 player.points = 0;
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
