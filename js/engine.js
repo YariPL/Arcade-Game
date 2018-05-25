@@ -93,7 +93,7 @@
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
-        player.update();
+        Player.update();
     }
 
     /* This function initially draws the "game level", it will then call
@@ -153,7 +153,7 @@
             enemy.render();
         });
 
-        player.render();
+        Player.render();
     }
 
     /* This function does nothing but it could have been a good place to
